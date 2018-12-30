@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta id="token" name="token" content="">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="">
+
+    <title></title>
+
+    <!-- Scripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{asset('js/style.js')}}"></script>
+    <script src="{{ asset('app.js') }}" defer></script>
+    <script src="{{asset('style.js')}}"></script>
+
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{{asset('app.css')}}">
+
+    <link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+
+</head>
+<body>
+
+
+
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+                         <li class="nav-item"><a class="nav-link" href="{{path('category')}}">Home</a></li>
+                       <li class="nav-item"> <form method="post" action="/search">
+                           
+                        <input type="text" name="search" placeholder="Search all categories.. " class="search">
+                       
+                        </form></li>
+                    </ul>
+                     <ul class="navbar-nav ml-auto">
+                     {% if not app.user %}
+                         <li class="nav-item">
+                        <a class="nav-link" href="{{ path('login')}}">Connexion</a>
+                    </li>
+                        {% else %}
+                           <li class="nav-item dropdown">
+                             <a class="dropdown-item" href="#">
+
+                                    {{ app.user.name }} <span class="caret"></span>
+                                </a>
+                                 </li>
+                                    <li>
+                                    <a class="dropdown-item" href="{{path('AddAds')}}">Creat ad</a>
+                                </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ path('myads', { 'id' : app.user.id })}}">My ads </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ path('logout')}}">Logout</a>
+                                    </li>
+                               
+
+                          
+                                
+                                
+                            </ul>
+                        {% endif %}
+                    
+                   
+                  
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4">
+            
+            {% block body %}
+            
+{% endblock %}
+        </main>
+
+             
+    </div>
+
+</body>
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</html>

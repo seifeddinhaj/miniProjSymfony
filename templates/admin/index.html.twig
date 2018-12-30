@@ -1,0 +1,56 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}{% endblock %}
+
+
+{% block sub %}
+    All ads
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Categories</th>
+                    <th scope="col">Sub Categories</th>
+                    
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                   {% for d in q %}
+                <tr>
+
+                    <th scope="row">{{d.id}}</th>
+                    <td>{{d.title}}</td>
+                    <td>{{d.price}}</td>
+                    <td>{{d.description}}</td>
+                     <td>{{d.type}}</td>
+                      <td>{{d.adresse}}</td>
+                       <td>{{d.name}}</td>
+                        <td>{{d.cat}}</td>
+                         <td>{{d.sub}}</td>
+                         
+                    <form action="add/delete" method="post">
+
+                        
+                        <td>
+                        <input type="hidden" value="{{d.id}}" name="id">
+                   <input type="submit" class="btn-dang" value="Delete"></td>
+                    </form>
+                </tr>
+               {% endfor %}
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% endblock %}

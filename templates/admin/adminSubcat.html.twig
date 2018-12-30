@@ -1,0 +1,56 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}{% endblock %}
+
+
+{% block sub %}
+    SubCategories
+{% endblock %}
+{% block body %}
+
+
+<div class="container">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 col-xs-12" style="text-align:  center;">
+         <form action="deleteSubCat" method="post">
+            
+            <div class="form-group">
+               
+               <label for="subcategories">Select one Sub categories for delete</label>
+               <select class="form-control" id="subcategories" name="subcategories">
+                  <option value="{{null}}"></option>
+               {% for c in cat %}
+                  <optgroup label="{{c.type}}">
+                      {% for s in sub   %}
+                    {% if c.id == s.category.id %} 
+                     <option value="{{s.id}}">{{s.type}}</option>
+                     {% endif %}
+                  {% endfor %}
+                  </optgroup>
+                  {% endfor %}
+                 
+               </select>
+            </div>
+            <input type="submit" class="btn-dang" value="Delete">
+         </form>
+
+            <br>
+         <form action="CreateSubCat" method="post">
+            
+            <div class="form-group">
+               <label>Add new sub categories</label>
+               <select class="form-control" name="categories" id="categories">
+                 {% for ca in cat %}
+                  <option value="{{ca.id}}">{{ca.type}}</option>
+                    {% endfor %}
+
+               </select>
+               <br>
+            <input type="text" class="form-control" placeholder="Exp : cars " name="add" id="add">
+            </div>
+               <input type="submit" class="btn-suc" value="Add">
+
+         </form>
+      </div>
+   </div>
+{% endblock %}

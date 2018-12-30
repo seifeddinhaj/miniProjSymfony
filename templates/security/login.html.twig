@@ -1,0 +1,23 @@
+{% extends 'base.html.twig'%}
+{% block body %}
+<h1>Connexion</h1>
+
+<form class="form-signin col-sm-4" action="{{ path('login') }}" method="post">
+    <div class="form-group ">
+      <input type="email" id="inputEmail" class="form-control" placeholder="Adresse Email" required autofocus name="_username">
+    </div>
+     <div class="form-group">
+      <input type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required name="_password">
+      </div>
+     
+      <div class="form-group">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+      </div>
+    </form>
+    
+     <form action="{{path('inscription')}}" class="col-sm-4">
+     <div class="form-group">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Inscription</button>
+      </div>
+      </form>
+{% endblock %}

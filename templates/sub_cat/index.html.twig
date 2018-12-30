@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+    <div class="container">
+        <div class="row">
+            <!-- categori -->
+
+
+            <div class="col-md-3 category">
+
+
+
+
+
+              <span class="flesh-left"> &crarr;</span >  <a href="{{ path('category') }}">All categories</a>
+
+                <h4 class="title-cat">{% for ss in req1 %}
+                        {{ss.type}}
+                    </h4>
+
+                {% for s in req%}
+                    <div class="x-categori">
+                        <a href="{{path('sub_catshow',{'id':ss.id,'idd':s.id})}}"> {{s.type}} </a>
+                    </div>
+
+               {% endfor %}
+               {% endfor %}
+                </div>
+
+
+            <!-- annonce -->
+            <div class="col-md-9">
+
+
+                <div class="row">
+                    {% for annonce in qq %}
+                    <div class="col-md-3 text-center">
+                        <a href="{{ path('details', { 'id' : annonce.id })}}">
+                        <div class="img">
+                        <img src="{{asset(annonce.urlimg)}}" alt="img Ad" class="img-thumbnail" style=" height: 150px; width: 200px;">
+                        </div>
+                        <div class="price">
+                        <p>{{annonce.price}} DT </p>
+                        </div>
+
+                        <div class="title">
+                        <p>{{annonce.title}}</p>
+                        </div>
+
+                        </a>
+                    </div>
+                   {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+ {% endblock %} 
